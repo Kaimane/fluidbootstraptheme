@@ -845,8 +845,37 @@
             <trans-unit id="flux.grid4.columns.column4">
                 <source>Right Column</source>
             </trans-unit>
-
 			<!-- FourColumn.html -->
+
+            <!-- Thumbnail.html -->
+            <trans-unit id="flux.thumbnail">
+                <source>Thumbnail Content</source>
+            </trans-unit>
+            <trans-unit id="flux.thumbnail.sheets.thumbnailImage">
+                <source>Image settings</source>
+            </trans-unit>
+            <trans-unit id="flux.thumbnail.fields.thumbnailImageFile">
+                <source>Image file</source>
+            </trans-unit>
+            <trans-unit id="flux.thumbnail.fields.thumbnailImageClass">
+                <source>Image shapes</source>
+            </trans-unit>
+            <trans-unit id="flux.thumbnail.fields.thumbnailImageAlt">
+                <source>Alttext</source>
+            </trans-unit>
+            <trans-unit id="flux.thumbnail.fields.thumbnailImageTitle">
+                <source>TitleText</source>
+            </trans-unit>
+            <trans-unit id="flux.thumbnail.fields.thumbnailImageWidth">
+                <source>Max. Width</source>
+            </trans-unit>
+            <trans-unit id="flux.thumbnail.fields.thumbnailImageLink">
+                <source>Link Image</source>
+            </trans-unit>
+            <trans-unit id="flux.thumbnail.columns.content">
+                <source>Caption / Text</source>
+            </trans-unit>
+            <!-- Thumbnail.html -->
 		</body>
 	</file>
 </xliff>

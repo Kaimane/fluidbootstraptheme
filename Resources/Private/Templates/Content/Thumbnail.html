@@ -1,0 +1,68 @@
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+	 xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+	 xmlns:flux="http://typo3.org/ns/FluidTYPO3/Flux/ViewHelpers"
+	 xmlns:f="http://typo3.org/ns/fluid/ViewHelpers">
+
+	<f:layout name="Content" />
+
+	<f:section name="Configuration">
+		<flux:form id="thumbnail" options="{useTypoScript: 0, group: 'Bootstrap'}">
+			<flux:form.sheet name="thumbnailImage">
+				<flux:field.file
+						name="thumbnailImageFile"
+						showThumbnails="1"
+						allowed="jpg,jpeg,png,gif"
+						required="1"
+						maxItems="1"
+						size="1"
+						/>
+				<flux:field.select name="thumbnailImageClass" items="none,img-rounded,img-circle,img-thumbnail"
+								   default="none" />
+				<flux:field.input name="thumbnailImageAlt" />
+				<flux:field.input name="thumbnailImageTitle" />
+				<flux:field.input name="thumbnailImageWidth" default="300" />
+				<flux:field.input name="thumbnailImageLink" size="1">
+					<flux:wizard.link activeTab="page" />
+				</flux:field.input>
+				<flux:form.content name="content" />
+			</flux:form.sheet>
+		</flux:form>
+	</f:section>
+
+	<f:section name="Preview">
+		<f:if condition="{thumbnailImageFile}">
+			<div style="text-align: center;">
+				<v:media.image src="{thumbnailImageFile}" alt="{thumbnailImageAlt}" width="100" />
+			</div>
+		</f:if>
+		<flux:widget.grid />
+	</f:section>
+
+	<f:section name="Main">
+		<div class="thumbnail">
+			<f:if condition="{thumbnailImageLink}">
+				<f:then>
+					<f:link.page pageUid="{thumbnailImageLink}" class="responseimglink">
+						<v:media.image src="{thumbnailImageFile}"
+									   alt="{thumbnailImageAlt}"
+									   class="img-responsive {thumbnailImageClass}"
+									   title="{thumbnailImageTitle}"
+									   width="{thumbnailImageWidth}"
+								/>
+					</f:link.page>
+				</f:then>
+				<f:else>
+					<v:media.image src="{thumbnailImageFile}" alt="{thumbnailImageAlt}"
+								   class="img-responsive {thumbnailImageClass}" title="{thumbnailImageTitle}"
+								   width="{thumbnailImageWidth}" />
+				</f:else>
+			</f:if>
+			<f:if condition="{flux:content.render(area: 'content')}">
+				<div class="caption">
+					<flux:content.render area="content" />
+				</div>
+			</f:if>
+		</div>
+	</f:section>
+
+</div>
